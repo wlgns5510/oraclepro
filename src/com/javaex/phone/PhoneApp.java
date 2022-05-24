@@ -47,7 +47,7 @@ public class PhoneApp {
 				String company2 = sc.next();
 				
 				
-				PersonVo person = new PersonVo(name2, hp2, company2); //스캐너로 입력받은 값 p01에 담기
+				PersonVo person = new PersonVo(name2, hp2, company2); //스캐너로 입력받은 값 person에 담기
 				
 				phoneDao.personInsert(person); //PhoneDao에 있는 입력메서드에 person을 담고 사용
 				
