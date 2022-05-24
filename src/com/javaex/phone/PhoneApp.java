@@ -23,15 +23,15 @@ public class PhoneApp {
 			switch(number) {
 			case 1: number = 1; //리스트 출력
 			
-			List<PersonVo> fullList = phoneDao.personSelect();
-			
-			for(int i=0; i<fullList.size(); i++) {
-				PersonVo personVo = fullList.get(i);
-				System.out.println(personVo.getPersonId() + ", " + 
-							       personVo.getName() + ", " +
-								   personVo.getHp() + ", " +
-							       personVo.getCompany());
-			}
+				List<PersonVo> fullList = phoneDao.personSelect();
+				
+				for(int i=0; i<fullList.size(); i++) {
+					PersonVo personVo = fullList.get(i);
+					System.out.println(personVo.getPersonId() + ", " + 
+								       personVo.getName() + ", " +
+									   personVo.getHp() + ", " +
+								       personVo.getCompany());
+				}
 			
 			
 				break;

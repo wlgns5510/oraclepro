@@ -153,7 +153,7 @@ public class PhoneDao {
 				query += " set name = ?, ";
 				query += "     hp = ?, ";
 				query += "     company = ? ";
-				query += " where name = ? ";
+				query += " where person_id = ? ";
 				
 				
 				
@@ -162,7 +162,7 @@ public class PhoneDao {
 				pstmt.setString(1, personVo.getName());
 				pstmt.setString(2, personVo.getHp());
 				pstmt.setString(3, personVo.getCompany());
-				pstmt.setString(4, personVo.getName());
+				pstmt.setInt(4, personVo.getPersonId());
 				
 				//실행
 				count = pstmt.executeUpdate();
