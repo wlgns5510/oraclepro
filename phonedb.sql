@@ -43,7 +43,8 @@
  
  --update문
  update person
- set hp = '010-9999-9999',
+ set name = '이정재',
+     hp = '010-9999-9999',
      company = '02-9999-9999'
  where name = '이정재';
 
