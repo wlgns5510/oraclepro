@@ -139,7 +139,7 @@ public class PhoneDao {
 		}
 		
 		//사람 수정하기 메소드
-		public int bookUpdate(PersonVo personVo) {
+		public int personUpdate(PersonVo personVo) {
 			int count = -1;
 			
 			getConnection();
@@ -168,7 +168,7 @@ public class PhoneDao {
 				count = pstmt.executeUpdate();
 				
 				//결과처리
-				System.out.println(count + "건이 업데이트되었습니다.");
+				System.out.println("[" + count + "건 수정되었습니다.]");
 			}	
 			catch (SQLException e) {
 				System.out.println("error:" + e);
@@ -180,7 +180,7 @@ public class PhoneDao {
 		}
 		
 		//사람 삭제하기 메소드
-		public int personDelete(String name) {
+		public int personDelete(int personId) {
 			int count = -1;
 		
 				getConnection();
@@ -191,17 +191,17 @@ public class PhoneDao {
 				//SQL문 준비
 				String query = "";
 				query += " delete from person ";
-				query += " where name = ? ";
+				query += " where person_id = ? ";
 				
 				//바인딩
 				pstmt = conn.prepareStatement(query);
-				pstmt.setString(1, name);
+				pstmt.setInt(1, personId);
 				
 				//실행
 				count = pstmt.executeUpdate();
 				
 				// 4.결과처리
-				System.out.println(count + "건 삭제 되었습니다.");
+				System.out.println("[" + count + "건 삭제되었습니다.]");
 				}
 				catch (SQLException e) {
 					System.out.println("error:" + e);

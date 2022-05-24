@@ -21,6 +21,13 @@ public class PersonVo {
 		this.company = company;
 	}
 	
+	public PersonVo(String name, String hp, String company, int personId) {
+		this.name = name;
+		this.hp = hp;
+		this.company = company;
+		this.personId = personId;
+	}
+
 	//매소드 gs
 	public int getPersonId() {
 		return personId;

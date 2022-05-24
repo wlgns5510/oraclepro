@@ -40,14 +40,14 @@ public class PhoneApp {
 				System.out.println("<2.등록>");
 				
 				System.out.print("이름 > ");
-				String name = sc.next();
+				String name2 = sc.next();
 				System.out.print("휴대전화 > ");
-				String hp = sc.next();
+				String hp2 = sc.next();
 				System.out.print("회사번호 > ");
-				String company = sc.next();
+				String company2 = sc.next();
 				
 				
-				PersonVo person = new PersonVo(name, hp, company); //스캐너로 입력받은 값 p01에 담기
+				PersonVo person = new PersonVo(name2, hp2, company2); //스캐너로 입력받은 값 p01에 담기
 				
 				phoneDao.personInsert(person); //PhoneDao에 있는 입력메서드에 person을 담고 사용
 				
@@ -55,11 +55,26 @@ public class PhoneApp {
 				break;
 				
 			case 3: number = 3; //수정
-				System.out.println("수정");
+				System.out.println("<3.수정>");
+				System.out.print("번호 > ");
+				int num3 = sc.nextInt();
+				System.out.print("이름 > ");
+				String name3 = sc.next();
+				System.out.print("휴대전화 > ");
+				String hp3 = sc.next();
+				System.out.print("회사번호 > ");
+				String company3 = sc.next();
+				
+				PersonVo person3 = new PersonVo(name3, hp3, company3, num3);
+				
+				phoneDao.personUpdate(person3);
 				break;
 				
 			case 4: number = 4; //삭제
-				System.out.println("삭제");
+				System.out.println("<4.삭제>");
+				System.out.print(">번호 : ");
+				int num4 = sc.nextInt();
+				phoneDao.personDelete(num4);
 				break;
 				
 			case 5: number = 5; //검색
