@@ -211,7 +211,65 @@ public class PhoneDao {
 			return count;
 		}
 		
-		
+		//사람 검색하기 메소드
+		public List<PersonVo> personSelect(String keyword) {
+			
+			//리스트 만들기
+			List<PersonVo> phoneList = new ArrayList<PersonVo>();
+			
+			getConnection();
+			
+			try {
+
+				// 3. SQL문 준비 / 바인딩 / 실행
+				
+				//SQL문 준비
+				String query = "";
+				query += " select person_id ";
+				query += "        , name ";
+				query += "        , hp ";
+				query += "        , company ";
+				query += " from person ";
+				query += " where (person_id Like '%"+keyword+"%' ";
+				query += " or name Like '%"+keyword+"%' ";
+				query += " or hp Like '%"+keyword+"%' ";
+				query += " or company Like '%"+keyword+"%') ";
+				
+				
+				//바인딩
+				pstmt = conn.prepareStatement(query);
+				
+				//실행
+				rs = pstmt.executeQuery();
+				
+				// 4.결과처리
+				//반복문으로 Vo 만들기 List에 추가하기
+				while(rs.next()) {
+					
+					int personId = rs.getInt("person_id");
+					String name = rs.getString("name");
+					String hp = rs.getString("hp");
+					String company = rs.getString("company");
+					
+					
+					PersonVo phoneVo = new PersonVo(personId, name, hp, company);
+					
+					phoneList.add(phoneVo);
+					
+				}
+				
+				//리스트 출력해 보기
+				//System.out.println(phoneList.toString());
+
+			} catch (SQLException e) {
+				System.out.println("error:" + e);
+			}
+			
+			close();
+			
+			return phoneList;
+			
+		}
 		
 		
 		

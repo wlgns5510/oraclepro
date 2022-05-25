@@ -78,8 +78,26 @@ public class PhoneApp {
 				break;
 				
 			case 5: number = 5; //검색
-				System.out.println("검색");	
-				break;
+			System.out.println();
+			System.out.println("<5.검색>");
+			System.out.println();
+			
+			sc.nextLine();
+			
+			System.out.print("검색어> ");
+			String keyword = sc.nextLine();
+			
+			List<PersonVo> fullList2 = phoneDao.personSelect(keyword);
+			
+			for(int i = 0; i<fullList2.size(); i++) {
+					 
+				PersonVo personVo = fullList2.get(i);
+				System.out.println(personVo.getPersonId()+" | "+personVo.getName()+" | "+personVo.getHp()+" | "+personVo.getCompany());
+				
+			}
+			
+			break;
+				
 				
 			case 6: number = 6; //종료
 				System.out.println("");

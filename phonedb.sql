@@ -50,7 +50,7 @@
 
  --delete¹®
  delete from person
- where person_id = '¼­ÀåÈÆ';
+ where person_id = 7;
  
  --Ä¿¹Ô
  commit;
