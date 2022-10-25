@@ -11,7 +11,7 @@
  --테이블 생성
  create table person(
     person_id number(5),
-    name varchar2(30),
+    name varchar2(30) not null,
     hp varchar2(20),
     company varchar2(20),
     primary key(person_id)
